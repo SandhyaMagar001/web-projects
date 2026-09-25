@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-dev: "Noto Sans Devanagari", "Nirmala UI", sans-serif;
+  --color-ink: #141c18;
+  --color-forest: #143028;
+  --color-pine: #1c4638;
+  --color-moss: #2f6b56;
+  --color-gold: #6e512c;
+  --color-brass: #c6a36a;
+  --color-gold-soft: #e7d3b4;
+  --color-cream: #f4f1ea;
+  --color-paper: #fbf9f5;
+  --color-sand: #e7e0d4;
+  --color-muted: #5c665f;
+  --color-line: #ddd6c8;
+  --color-danger: #8d2f2f;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #root {
+    min-height: 100svh;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: var(--color-gold-soft);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-moss);
+    outline-offset: 3px;
+  }
+
+  [id] {
+    scroll-margin-top: 5.5rem;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  animation: marquee 48s linear infinite;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(20, 48, 40, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 48, 40, 0.055) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: linear-gradient(to bottom, black 40%, transparent 95%);
+}
+
+.band-grid {
+  background-image:
+    linear-gradient(to right, rgba(231, 211, 180, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(231, 211, 180, 0.09) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -5rem;
+  z-index: 80;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  padding: 0.6rem 1rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

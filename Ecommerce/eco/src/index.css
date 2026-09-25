@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --color-brand: #0f3d56;
+  --color-brand-dark: #0a2a3c;
+  --color-accent: #c4a574;
+  --color-accent-dark: #a88855;
+  --color-ink: #12202b;
+  --color-muted: #5b6b75;
+  --color-line: #e2e8ee;
+  --color-paper: #f6f8fa;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply m-0 min-w-80 bg-paper font-sans text-ink antialiased; }
+  a { color: inherit; text-decoration: none; }
+  button, input, select, textarea { font: inherit; }
+  button { cursor: pointer; }
+  img { display: block; max-width: 100%; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+.animate-fade-up { animation: fade-up 0.65s ease both; }
+.animate-fade-in { animation: fade-in 0.45s ease both; }
+.animate-slide-in { animation: slide-in 0.45s ease both; }
+.delay-1 { animation-delay: 80ms; }
+.delay-2 { animation-delay: 160ms; }
+.delay-3 { animation-delay: 240ms; }
+.delay-4 { animation-delay: 320ms; }
